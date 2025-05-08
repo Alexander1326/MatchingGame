@@ -27,7 +27,7 @@ for (let i = 0; i < cards.length; i++) {
     <div class="card-inner">
       <div class="card-front"></div>
       <div class="card-back">
-        <img src="images/${num}.jpg" alt="Image ${num}" style="width:100%; height:100%; border-radius:8px;">
+        <img src="${num}.jpg" alt="Image ${num}" style="width:100%; height:100%; border-radius:8px;">
       </div>
     </div>
   `;
