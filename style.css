@@ -1,153 +1,159 @@
-h1 {
-    font-family: 'Arial', sans-serif;
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0;
-    background: linear-gradient(45deg, #ff1493, #ff7f50);
-    -webkit-background-clip: text;
-    background-clip: text;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  
-  #scoreboard {
-    text-align: center;
-    font-size: 20px;
-    color: #fff;
-    font-weight: bold;
-    position: absolute;
-    top: 15%;
-    left: 92%;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff7f50, #b26690);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    flex-direction: column;
-  }
-  
-  #game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .card {
-    width: 80px;
-    height: 80px;
-    perspective: 1000px;
-  }
-  
-  .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-  }
-  
-  .card.flipped .card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .card-front,
-  .card-back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    backface-visibility: hidden;
-  }
-  
-  .card-front {
-    background-color: #caf745;
-    border-radius: 8px;
-  }
-  
-  .card-back {
-    background-color: #c0d7af;
-    border-radius: 8px;
-    transform: rotateY(180deg);
-  }
-  
-  .card img {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-  }
-  
-  #play-again {
-    position: absolute;
-    top: 5%;
-    left: 90%;
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #ffcc00;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  #play-again:hover {
-    background-color: #ffaa00;
-  }
-  
-  #timer {
-    text-align: center;
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  #win-message {
-    position: fixed;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    background: rgba(163, 65, 65, 0.9);
-    color: white;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    z-index: 1000;
-  }
-  
-  #win-message.hidden {
-    display: none;
-  }
+/* General Body and Layout Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff7f50, #b26690);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  flex-direction: column;
+  padding: 10px;
+}
 
-  /* Responsive Styles */
+h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  background: linear-gradient(45deg, #ff1493, #ff7f50);
+  -webkit-background-clip: text;
+  background-clip: text;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Game Board Styling */
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Default to 4 columns */
+  gap: 10px;
+  padding: 20px;
+  max-width: 90%; /* Allow game board to scale */
+  margin: 0 auto;
+}
+
+.card {
+  width: 100%;
+  height: 100px; /* Make card height flexible */
+  perspective: 1000px;
+}
+
+/* Card Flip Effect */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #caf745;
+  border-radius: 8px;
+}
+
+.card-back {
+  background-color: #c0d7af;
+  border-radius: 8px;
+  transform: rotateY(180deg);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* Scoreboard and Timer */
+#scoreboard, #timer {
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Position adjustments for better responsiveness */
+#scoreboard {
+  position: relative; /* Change from absolute */
+  margin-top: 10px;
+}
+
+#timer {
+  margin-top: 5px;
+}
+
+/* Win Message */
+#win-message {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  background: rgba(163, 65, 65, 0.9);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  z-index: 1000;
+}
+
+#win-message.hidden {
+  display: none;
+}
+
+/* Play Again Button */
+#play-again {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+#play-again:hover {
+  background-color: #ffaa00;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   /* Adjust grid layout for smaller screens */
   #game-board {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row on medium screens */
     gap: 8px;
   }
 
   .card {
-    height: 100px;
+    height: 90px; /* Adjust card height for medium screens */
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 2rem; /* Reduce font size for header */
   }
 
   #scoreboard, #timer {
@@ -158,25 +164,24 @@ h1 {
 @media (max-width: 480px) {
   /* Adjust grid layout further for very small screens */
   #game-board {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on mobile */
     gap: 5px;
   }
 
   .card {
-    height: 80px;
+    height: 80px; /* Adjust card height for small screens */
   }
 
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem; /* Further reduce font size for header */
   }
 
   #scoreboard, #timer {
     font-size: 0.9rem;
   }
 
-  button {
-    font-size: 0.9rem;
+  #play-again {
+    font-size: 1rem;
+    padding: 8px 16px;
   }
 }
-
-  
