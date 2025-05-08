@@ -27,7 +27,7 @@ for (let i = 0; i < cards.length; i++) {
     <div class="card-inner">
       <div class="card-front"></div>
       <div class="card-back">
-        <img src="${num}.jpg" alt="Image ${num}" style="width:100%; height:100%; border-radius:8px;">
+        <img src="images/${num}.jpg" alt="Image ${num}" style="width:100%; height:100%; border-radius:8px;">
       </div>
     </div>
   `;
@@ -104,6 +104,7 @@ function stopTimer() {
 
 function showWinMessage() {
   finalTimeDisplay.textContent = timer;
+  document.getElementById("scoreDisplay").textContent = score;
   winMessage.classList.remove("hidden");
 }
 
