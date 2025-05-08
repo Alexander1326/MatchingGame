@@ -9,8 +9,10 @@ body {
   margin: 0;
   flex-direction: column;
   padding: 10px;
+  box-sizing: border-box;
 }
 
+/* Title Styling */
 h1 {
   font-family: 'Arial', sans-serif;
   font-size: 3rem;
@@ -35,13 +37,15 @@ h1 {
   grid-template-columns: repeat(4, 1fr); /* Default to 4 columns */
   gap: 10px;
   padding: 20px;
-  max-width: 90%; /* Allow game board to scale */
-  margin: 0 auto;
+  width: 100%;
+  max-width: 480px; /* Max width to ensure it doesn’t get too large */
+  margin: 20px auto; /* Centered with margin */
+  box-sizing: border-box;
 }
 
 .card {
   width: 100%;
-  height: 100px; /* Make card height flexible */
+  height: 100px; /* Flexibly adjusted based on screen size */
   perspective: 1000px;
 }
 
@@ -141,19 +145,40 @@ h1 {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
-  /* Adjust grid layout for smaller screens */
+@media (max-width: 1024px) {
+  /* For tablets or medium screens */
   #game-board {
-    grid-template-columns: repeat(3, 1fr); /* 3 cards per row on medium screens */
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 10px;
+    max-width: 90%; /* Ensure it scales down */
+  }
+
+  .card {
+    height: 120px; /* Adjust card height */
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Adjust title size */
+  }
+
+  #scoreboard, #timer {
+    font-size: 1.2rem; /* Adjust font size */
+  }
+}
+
+@media (max-width: 768px) {
+  /* For smaller screens (iPads and smaller) */
+  #game-board {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
     gap: 8px;
   }
 
   .card {
-    height: 90px; /* Adjust card height for medium screens */
+    height: 100px; /* Adjust card height */
   }
 
   h1 {
-    font-size: 2rem; /* Reduce font size for header */
+    font-size: 2rem; /* Adjust title size */
   }
 
   #scoreboard, #timer {
@@ -162,26 +187,26 @@ h1 {
 }
 
 @media (max-width: 480px) {
-  /* Adjust grid layout further for very small screens */
+  /* For mobile screens */
   #game-board {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on mobile */
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
     gap: 5px;
   }
 
   .card {
-    height: 80px; /* Adjust card height for small screens */
+    height: 80px; /* Adjust card height */
   }
 
   h1 {
-    font-size: 1.5rem; /* Further reduce font size for header */
+    font-size: 1.6rem; /* Adjust header size */
   }
 
   #scoreboard, #timer {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Adjust scoreboard font size */
   }
 
   #play-again {
-    font-size: 1rem;
+    font-size: 1rem; /* Adjust play button size */
     padding: 8px 16px;
   }
 }
